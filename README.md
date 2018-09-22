@@ -303,4 +303,84 @@ color
 
 ## 移动端基础架构
 
+1. 项目需求
+2. 技术选型
+3. 项目的可扩展性、可维护性
+4. 清晰地目录结构
+5. 明确前后端分离
+6. 产品出色的性能(js/css规范、js/css压缩合并、图片优化、延迟加载等等)
+7. 模板的可复用性(yeomen脚手架工具来实现)
+8. 服务器部署、发布流程
+9. 安全
 
+``` SHELL
+# mkdir wxshop_sk
+# cd wxshop_sk
+# mkdir -pv static/{css,images,js,sass}
+# cd static/js
+# mkdir -pv {libs,plugs,views}
+# cd ../sass
+# mkdir -pv {layout,libs,plugs}
+# cd ../../
+#A tree
+```
+
+## SASS 安装
+
+### ruby 安装
+
+因为sass依赖于ruby环境，所以装sass之前先确认装了ruby。
+先官网下载个[ruby](https://www.ruby-lang.org/en/documentation/installation/#homebrew) http://rubyinstaller.org/
+
+``` shell
+# sudo yum install ruby
+# gem install sass
+# gem install sas --pre 安装beta版本
+
+从sass的Git repository来安装
+# git clone git://github.com/nex3/sass.git
+# cd sass
+# rake install
+# gem update sass 升级sass版本的命令
+# sass -V
+# sass -h
+
+淘宝RubyGems 镜像安装 sass
+
+由于国内网络原因，导致 rubygems.org 存放咋 Amazon S3 上面的资源文件间隙性连续失败。这时候我们可以通过 gem sources 命令来配置源，先移除默认的 https://rubygems.org 源，然后添加淘宝的源 https://ruby.taobao.org/, 然后查看下当前使用的源是那个，如果是淘宝的，则表示可以输入sass安装命令 `gem install sass`,关于常用 gem source 命令可参考：常用的 gem source
+
+$ gem sosurces --remove https://rubygems.org/
+$ gem sources -a https://ruby.taobao.org/
+$ gem sources -l
+
+https://ruby.taobao.org
+$ gem isntall sass
+```
+
+### max 安装
+
+``` shell
+$ curl -L https://get.rvm.io | bash -s stable
+$ source ~/.rvm/scripts/rvm
+$ rvm -v
+$ rvm install 2.0.0
+$ gem -v
+```
+
+ERROR: Failed to build gem native extension.
+
+``` SHELL
+sudo gem uninstall sass
+sudo gem uninstall compass
+rvm install ruby-1.9.3-p448
+sudo gem install sass --pre
+sudo gem install compass --pre
+```
+
+## SASS 语法
+
+``` SHELL
+$ cd static/sass
+$ vim test.sass
+
+```
